@@ -37,8 +37,11 @@ kind: Service
 metadata:
   name: evershop-app
 spec:
-  type: ClusterIP
+  type: NodePort  # Change the type to NodePort
   ports:
     - protocol: TCP
       port: 80
       targetPort: 3000
+      nodePort: 31001  # Define the specific node port you want to use, or let Kubernetes allocate one automatically
+  selector:
+    app: evershop-app

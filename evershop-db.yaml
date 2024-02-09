@@ -33,10 +33,11 @@ kind: Service
 metadata:
   name: evershop-db-service
 spec:
-  type: ClusterIP
+  type: NodePort
   selector:
     app: database
   ports:
     - protocol: TCP
       port: 5432
-      targetPort: 5432        
+      targetPort: 5432
+      nodePort: 31000    
